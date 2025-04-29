@@ -1,0 +1,46 @@
+﻿@model ApiBinance.Models.BinanceUserOrderListResponse
+
+@{
+    ViewData["Title"] = "Órdenes Actuales";
+}
+<h1 class="mb-3">Órdenes</h1>
+
+<div class="mb-3">
+    <label for="filter" class="form-label">Filtrar por método de pago</label>
+    <select id="filter" class="form-select">
+        <option value="">Todos</option>
+        @foreach (var method in Model.Data.SelectMany(x => x.TradeMethods).Select(m => m.PayType).Distinct())
+        {
+            <option value="@method">@method</option>
+        }
+    </select>
+</div>
+
+<table id="orders" class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th># Orden</th>
+            <th>Monto Total</th>
+            <th>Método(s) de Pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Data)
+        {
+            <tr data-paytype="@order.TradeMethods.FirstOrDefault()?.PayType">
+                <td>@order.OrderNumber</td>
+                <td>@order.TotalPrice</td>
+                <td>@string.Join(", ", order.TradeMethods.Select(m => m.PayType))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("filter").addEventListener("change", function () {
+        const selected = this.value;
+        document.querySelectorAll("#orders tbody tr").forEach(tr => {
+            tr.style.display = !selected || tr.dataset.paytype === selected ? "" : "none";
+        });
+    });
+</script>

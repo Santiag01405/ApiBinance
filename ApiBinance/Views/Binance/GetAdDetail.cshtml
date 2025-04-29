@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Detalle de Anuncio";
+}
+
+<h1>Ver Detalle de Anuncio</h1>
+
+<form asp-action="GetAdDetail" method="get">
+    <div class="form-group">
+        <label for="adsNo">Número de Anuncio:</label>
+        <input type="text" id="adsNo" name="adsNo" class="form-control" required />
+    </div>
+    <button type="submit">Buscar</button>
+</form>

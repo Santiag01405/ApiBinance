@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Error al Cargar Órdenes";
+}
+
+<h1>Error al obtener las órdenes</h1>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        <pre>@ViewBag.Error</pre>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <p>No se pudo obtener la respuesta de Binance.</p>
+    </div>
+}
+
+<a class="btn btn-secondary mt-3" asp-controller="Dashboard" asp-action="Index">Volver al Dashboard</a>
+

@@ -1,0 +1,8 @@
+﻿@model ApiBinance.Models.AdUpdateStatusRequest
+
+<h1>Actualizar Estado del Anuncio</h1>
+
+<form asp-action="UpdateAdStatus" method="post">
+    @Html.EditorForModel()
+    <button type="submit">Actualizar Estado</button>
+</form>

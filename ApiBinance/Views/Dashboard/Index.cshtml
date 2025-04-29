@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Panel de Control Binance";
+}
+
+<div class="container mt-4">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <h1 class="mb-4">Panel de Control Binance</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card border-primary mb-4">
+                <div class="card-header bg-primary text-white">Anuncios</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="PostAd">Publicar Anuncio</a></li>
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="UpdateAd">Actualizar Anuncio</a></li>
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="UpdateAdStatus">Actualizar Estado de Anuncio</a></li>
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="GetAdDetail">Obtener Detalle del Anuncio</a></li>
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="GetAdCategories">Ver Categorías Disponibles</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        <div class="col-md-6">
+            <div class="card border-success mb-4">
+                <div class="card-header bg-success text-white">Órdenes</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="ReleaseCoin">Liberar Orden (Release Coin)</a></li>
+                            <li class="list-group-item">
+                                <a asp-controller="Binance" asp-action="UserOrders">Ver Lista de Órdenes</a>
+                            <li class="list-group-item">
+                                <a asp-controller="PublicAds" asp-action="Index">Ver Anuncios Públicos</a>
+                            </li>
+
+                            </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white">Chat</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="GetChatMessages">Ver Mensajes de Chat</a></li>
+                        <li class="list-group-item"><a asp-controller="Binance" asp-action="GetChatCredentials">Obtener Credenciales de Chat</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

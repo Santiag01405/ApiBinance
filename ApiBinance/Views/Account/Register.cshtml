@@ -1,0 +1,35 @@
+﻿@model ApiBinance.Models.User
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="container mt-5">
+    <h2>Registro de Usuario</h2>
+
+    <form asp-action="Register" method="post" class="mt-4">
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PasswordHash" class="form-label"></label>
+            <input asp-for="PasswordHash" type="password" class="form-control" />
+            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-link">¿Ya tienes cuenta? Inicia sesión</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

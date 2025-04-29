@@ -1,0 +1,8 @@
+﻿@model ApiBinance.Models.ReleaseCoinRequest
+
+<h1>Liberar Orden</h1>
+
+<form asp-action="ReleaseCoin" method="post">
+    @Html.EditorForModel()
+    <button type="submit">Liberar</button>
+</form>
