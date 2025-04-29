@@ -1,0 +1,8 @@
+﻿@model ApiBinance.Models.AdPublishRequest
+
+<h1>Publicar Anuncio</h1>
+
+<form asp-action="PostAd" method="post">
+    @Html.EditorForModel()
+    <button type="submit">Publicar</button>
+</form>
