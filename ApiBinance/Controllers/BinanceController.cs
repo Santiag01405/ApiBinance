@@ -97,7 +97,7 @@ public class BinanceController : Controller
         return View("UpdateAdStatusResult");
     }
 
-    // VISTA: Formulario para liberar la orden (release coin)
+    // VISTA: Formulario para liberar la orden (release coi
     [HttpGet]
     public IActionResult ReleaseCoin()
     {
