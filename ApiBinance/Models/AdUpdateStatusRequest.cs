@@ -14,3 +14,7 @@ public class AdUpdateStatusRequest
     [JsonPropertyName("advStatus")]
     public int AdvStatus { get; set; } // 0 = OFFLINE, 1 = ONLINE
 }
+
+
+
+

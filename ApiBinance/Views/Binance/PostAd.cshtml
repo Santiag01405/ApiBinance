@@ -2,6 +2,7 @@
 
 <h1>Publicar Anuncio</h1>
 
+<<<<<<< HEAD
 @if (TempData["Success"] != null)
 {
     <div class="alert alert-success">@TempData["Success"]</div>
@@ -11,6 +12,8 @@
     <div class="alert alert-danger">@TempData["Error"]</div>
 }
 
+=======
+>>>>>>> 69616524e48364b9a76f7dd7d4bee73fb178d9c1
 <form asp-action="PostAd" method="post">
     @Html.EditorForModel()
     <button type="submit">Publicar</button>

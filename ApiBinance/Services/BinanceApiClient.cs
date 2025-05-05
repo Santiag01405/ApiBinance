@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.IO.Compression;
 using System.Net.Http.Headers;
 
+
 namespace ApiBinance.Services
 {
     public class BinanceApiClient
@@ -27,6 +28,7 @@ namespace ApiBinance.Services
             var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
             return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
         }
+
 
         public async Task<BinanceUserOrderListResponse> GetUserOrdersAuthenticatedAsync()
         {
@@ -115,6 +117,19 @@ namespace ApiBinance.Services
              response.EnsureSuccessStatusCode();
              return await response.Content.ReadAsStringAsync();
          }*/
+
+
+           /* var queryString = $"adsNo={adsNo}&timestamp={timestamp}";
+            var signature = Sign(queryString);
+            var fullUrl = $"{_settings.BaseUrl}/sapi/v1/c2c/ads/getDetailByNo?{queryString}&signature={signature}";
+
+            var request = new HttpRequestMessage(HttpMethod.Get, fullUrl);
+            request.Headers.Add("X-MBX-APIKEY", _settings.ApiKey);
+
+            var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
+        }*/
 
         public async Task<string> UpdateAdAsync(AdUpdateRequest update)
         {
@@ -393,8 +408,5 @@ namespace ApiBinance.Services
 
             return body; // <-- crudo, JSON puro, igual que Postman
         }
-
-
-
     }
 }

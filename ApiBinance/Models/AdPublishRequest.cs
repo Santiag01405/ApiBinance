@@ -144,6 +144,8 @@ public class AdPublishRequest
 
 
 /*using System.ComponentModel.DataAnnotations;
+=======
+>>>>>>> 69616524e48364b9a76f7dd7d4bee73fb178d9c1
 
 namespace ApiBinance.Models;
 
@@ -199,4 +201,7 @@ public class TradeMethod
 
     [Required]
     public string PayType { get; set; } = "";
+<<<<<<< HEAD
 }*/
+
+

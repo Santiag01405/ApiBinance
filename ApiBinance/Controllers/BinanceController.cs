@@ -22,10 +22,12 @@ public class BinanceController : Controller
     }
 
     //Publicar anuncio
+
     [HttpPost]
     public async Task<IActionResult> PostAd(AdPublishRequest request)
     {
         if (!ModelState.IsValid)
+
         {
             TempData["Error"] = "Datos inválidos. Verifica el formulario.";
             return View(request);
@@ -44,11 +46,17 @@ public class BinanceController : Controller
         }
 
         /*if (!ModelState.IsValid)
+=======
+>>>>>>> 69616524e48364b9a76f7dd7d4bee73fb178d9c1
             return View(request);
 
         var result = await _binanceClient.PostAdAsync(request);
         ViewBag.Response = result;
+<<<<<<< HEAD
         return View("PostAdResult");*/
+
+        return View("PostAdResult");
+
     }
 
     // VISTA: Formulario para actualizar anuncio
@@ -75,6 +83,7 @@ public class BinanceController : Controller
     {
         return View();
     }
+
 
     //Actualizar estado del anuncio
     [HttpPost]
